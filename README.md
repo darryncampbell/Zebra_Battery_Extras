@@ -1,5 +1,8 @@
 # Zebra Battery Extras
 
+*This application is provided without guarantee or warranty*
+=========================================================
+
 This application demonstrates the extra battery information which can be obtained on Zebra Android Mobile Devices
 
 The standard Android battery Intent is [Intent.ACTION_BATTERY_CHANGED](https://developer.android.com/reference/android/content/Intent.html#ACTION_BATTERY_CHANGED) and on all Android devices this Intent will contain the following information:
