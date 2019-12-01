@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
     };
 
     private void handleBatteryIntent(Intent batteryStatus) {
-        float batteryPct = 0.0f;
+        float percentage = 0.0f;
         if (batteryStatus != null) {
             boolean present = batteryStatus.getBooleanExtra(BatteryManager.EXTRA_PRESENT, false);
             String presentTxt = "No battery";
@@ -70,9 +70,12 @@ public class MainActivity extends AppCompatActivity {
             int level = batteryStatus.getIntExtra(BatteryManager.EXTRA_LEVEL, -1);
             int scale = batteryStatus.getIntExtra(BatteryManager.EXTRA_SCALE, -1);
             if (level != -1 && scale != -1)
-                batteryPct = (level / (float) scale) * 100f;
+                percentage = (level / (float) scale) * 100f;
             else
-                batteryPct = -1;
+                percentage = -1;
+            String percentageVal = "unknown";
+            if (percentage > -1)
+                percentageVal = String.format("%.1f", percentage) + "%";
             int pluggedIn = batteryStatus.getIntExtra(BatteryManager.EXTRA_PLUGGED, -1);
             String pluggedInStatus = "unknown";
             if (pluggedIn == 0)
@@ -126,8 +129,14 @@ public class MainActivity extends AppCompatActivity {
 
             //  Zebra specific battery extras
             String manufactureDate = batteryStatus.getStringExtra("mfd");
+            if (manufactureDate == null)
+                manufactureDate = "unknown";
             String partNumber = batteryStatus.getStringExtra("partnumber");
+            if (partNumber == null)
+                partNumber = "unknown";
             String serialNumber = batteryStatus.getStringExtra("serialnumber");
+            if (serialNumber == null)
+                serialNumber = "unknown";
             int backupBatteryVoltage = batteryStatus.getIntExtra("bkvoltage", -1);
             String backupBatteryVoltageTxt = "unknown";
             if (backupBatteryVoltage > -1)
@@ -183,7 +192,7 @@ public class MainActivity extends AppCompatActivity {
 
             list.add("=== STANDARD ANDROID ===");
             list.add("Battery Present?: " + presentTxt);
-            list.add("Battery Percentage: " + batteryPct);
+            list.add("Battery Percentage: " + percentageVal);
             list.add("Plugged In?: " + pluggedInStatus);
             list.add("Health: " + healthTxt);
             list.add("Status: " + statusTxt);
