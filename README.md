@@ -1,5 +1,7 @@
 # Zebra Battery Extras
 
+**THIS APPLICATION HAS MOVED TO https://github.com/Zebra/Zebra_Battery_Extras AND WILL NO LONGER BE MAINTAINED IN THIS REPOSITORY**
+
 *This application is provided without guarantee or warranty*
 =========================================================
 
