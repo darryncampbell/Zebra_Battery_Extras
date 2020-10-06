@@ -1,3 +1,6 @@
+*Please be aware that this application / sample is provided as-is for demonstration purposes without any guarantee of support*
+=========================================================
+
 # Zebra Battery Extras
 
 **THIS APPLICATION HAS MOVED TO https://github.com/Zebra/Zebra_Battery_Extras AND WILL NO LONGER BE MAINTAINED IN THIS REPOSITORY**
